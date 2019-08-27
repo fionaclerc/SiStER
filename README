@@ -1,0 +1,15 @@
+Here is the code necessary to reproduce the numerical experiments of:
+
+Clerc, F., Minchew, B. M., & Behn, M. D. (2019). Marine Ice Cliff Instability Mitigated by Slow Removal of Ice Shelves. Under revision at Geophysical Research Letters.
+
+We use the model SiStER (Simple Stokes solver for Exotic Rheologies):
+
+Olive, J. A., Behn, M. D., Mittelstaedt, E., Ito, G., & Klein, B. Z. (2016). The role of elasticity in simulating long-term tectonic extension. Geophysical Journal International, 205(2), 728–743. https://doi.org/10.1093/gji/ggw044
+
+
+
+The function SiStER_MAIN_cliff.m runs a single numerical experiment, taking as input:
+	1. "fname" - name of output files.
+	2. "deltat" - timescale of ice-shelf removal
+	3. "h" - subaerial cliff height
+	4. "n_flow" - stress exponent in flow law (use 1 or 3)
