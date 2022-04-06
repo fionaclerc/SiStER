@@ -36,8 +36,8 @@ for pit=1:PARAMS.Npicard_max
     %---------------------------------------------------------------------------------
     % Assemble L and R matrices
     %---------------------------------------------------------------------------------
-    [L, R, Kc, Kb]=SiStER_assemble_L_R(dx,dy,Zs.*etas,Zn.*etan,rho,BC,PARAMS,srhs_xx,srhs_xy); %G.Ito
-    
+    [L, R, Kc, Kb]=SiStER_assemble_L_R_sxy(dx,dy,Zs.*etas,Zn.*etan,rho,BC,PARAMS,srhs_xx,srhs_xy); %G.Ito
+    % modified for shear stress bottom boundary condition (F. Clerc)
     %---------------------------------------------------------------------------------
     % Residual:  L and R are from current solution S
     %---------------------------------------------------------------------------------
