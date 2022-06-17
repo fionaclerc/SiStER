@@ -82,7 +82,7 @@ for pit=1:PARAMS.Npicard_max
 
    
 %% get strain rate on nodes current solution
-[EXX,EXY]=SiStER_get_strain_rate(vx,vy,dx,dy,BC);
+[EXX,EXY]=SiStER_get_strain_rate_sxy_bottom(vx,vy,dx,dy,BC,Zs,srhs_xy,etas);
 
 EXY_n=SiStER_interp_shear_to_normal_nodes(EXY);       
 EXX_s=SiStER_interp_normal_to_shear_nodes(EXX,dx,dy); 
