@@ -282,19 +282,19 @@ for j=1:Nx
                     Lii(nn) = invx;
                     Ljj(nn) = invx;
                    % Lvv(nn)  = (Kc).*etas(i,j)/(0.5*(dy(i-1)+dy(i)));% Zn is already multiplied through etan
-                   Lvv(nn)  = (Kb./Kc).^2.*etas(i,j)/(0.5*(dy(i-1)+dy(i)));% Zn is already multiplied through etan
-                 %   Lvv(nn)  = Kc./(0.5*(dy(i-1)+dy(i)));% Zn is already multiplied through etan
+                 %  Lvv(nn)  = (Kb./Kc).^2.*etas(i,j)/(0.5*(dy(i-1)+dy(i)));% Zn is already multiplied through etan
+                    Lvv(nn)  = Kc./(0.5*(dy(i-1)+dy(i)));% Zn is already multiplied through etan
                     nn = nn+1;
                     
                     % (i+1,j)
                     Lii(nn) = invx;
                     Ljj(nn) = invx-3;
-                    Lvv(nn)  = -(Kb./Kc).^2.*etas(i-1,j)/(0.5*(dy(i-1)+dy(i)));% Zn is already multiplied through etan
-                %    Lvv(nn)  = -Kc/(0.5*(dy(i-1)+dy(i)));% Zn is already multiplied through etan
+                %    Lvv(nn)  = -(Kb./Kc).^2.*etas(i-1,j)/(0.5*(dy(i-1)+dy(i)));% Zn is already multiplied through etan
+                    Lvv(nn)  = -Kc.*etas(i-1,j)./(etas(i,j).*(0.5*(dy(i-1)+dy(i))));% Zn is already multiplied through etan
                     nn = nn+1;
                     
                     %R(invx,1) = (Kb./Kc).*(BC.right(3) - ((1 - Zs(i+1,j)).*srhs_xy(i+1,j)));
-                    R(invx,1) = (Kb./Kc).^2.*(BC.bot_profile(j) - (srhs_xy(i,j)));% I think srhs_xy is multiplied through by Zs already
+                    R(invx,1) = Kc.*(BC.bot_profile(j) - (srhs_xy(i,j)))./etas(i,j);% I think srhs_xy is multiplied through by Zs already
                     %R(invx,1) = 0;
 
                 end
